@@ -1,6 +1,6 @@
 # Dixie game
 
-A small make-up gift for Dixie: one note, then a space shooter called "დაამარცხე ვანო" (Defeat Vano).
+A small make-up gift for Dixie: one note, then a space shooter called "გაგას ნერვებს ნუ უშლი" (Don't get on Gaga's nerves).
 
 - Drag a finger (or use the arrow keys / WASD) to steer the ship. It fires hearts on its own.
 - Survive the waves of grumpy clouds, then beat Vano.
