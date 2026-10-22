@@ -165,7 +165,7 @@ const G = {
   title:   "დაამარცხე ვანო",
   rules:   "ხომალდი თავისით ისვრის. გადაათრიე თითი, აარიდე ძახილის ნიშნებს და დაამარცხე ვანო.",
   start:   "დაწყება",
-  warn:    "ყურადღება! ვანო მოდის",
+  warn:    "ყურადღება!\nდიანა, გაგა მოდის\nდა ვერ მოიშორებ",
   boss:    "ვანო",
   won:     "გაიმარჯვე!",
   wonText: "ვანო დამარცხდა",
@@ -263,7 +263,7 @@ function game(autoStart) {
       if (t > WAVES_SECONDS) { phase = 'warn'; warnT = 0; }
     } else if (phase === 'warn') {
       warnT += dt;
-      if (warnT > 2.4) { phase = 'boss'; boss = { x: W / 2, y: -100, hp: BOSS_HP, t: 0, cd: 1.6, n: 0, flash: 0 }; }
+      if (warnT > 3.4) { phase = 'boss'; boss = { x: W / 2, y: -100, hp: BOSS_HP, t: 0, cd: 1.6, n: 0, flash: 0 }; }
     }
 
     foes.forEach(f => {
@@ -392,7 +392,7 @@ function game(autoStart) {
     ctx.globalAlpha = 1;
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     if (phase === 'warn' && Math.floor(warnT * 3) % 2 === 0) {
-      ctx.font = '700 24px "Patrick Hand", "Noto Sans Georgian", sans-serif'; ctx.fillStyle = '#ffe27a'; ctx.fillText(G.warn, W / 2, H * .4);
+      ctx.font = '700 24px "Patrick Hand", "Noto Sans Georgian", sans-serif'; ctx.fillStyle = '#ffe27a'; G.warn.split('\n').forEach((ln, i, a) => ctx.fillText(ln, W / 2, H * .4 + (i - (a.length - 1) / 2) * 30));
     }
     if (boss) {
       const bw = W - 40, f = Math.max(0, boss.hp / BOSS_HP);
